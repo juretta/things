@@ -1,6 +1,15 @@
 = things
 
-Description goes here.
+A command line client for the Things task management application (Mac only).
+
+= Usage
+You can pipe the to-do title into the things command:
+    echo "The new todo" | things
+OR
+    things < todo.txt # => todo.txt contains the title of the new todo
+You can supply an argument. In this case things assumes that the given argument is a file.
+The file content will be the note of the new todo.
+    things things.txt
 
 == Copyright
 

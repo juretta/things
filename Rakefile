@@ -6,11 +6,13 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "things"
     gem.summary = %Q{Command line access for the Things task management application (Mac).}
-    gem.email = "stefan@coravy.com"
+    gem.email = "s@juretta.com"
     gem.homepage = "http://github.com/juretta/things"
     gem.authors = ["Stefan Saasen"]
     gem.rubyforge_project = "things"
-    gem.default_executable = 'bin/things'
+    gem.bindir = 'bin'
+    gem.executables = ['things']
+    gem.platform = Gem::Platform::CURRENT
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 

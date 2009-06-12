@@ -18,39 +18,6 @@
 #
 # == Copyright
 # Copyright(c), 2009 Stefan Saasen juretta.com
-require 'rdoc/usage'
+require 'things'
 
-module Things
-  class CLI
-    def todo_with_note(title)
-      lines = DATA.read.inject("") do |str, line|
-        line = line.gsub(/%CMD%/, '{name: "", notes:item 1 of argv}') if line =~ /%CMD%/
-        str << "-e '#{line.strip}' "
-        str
-      end
-      `osascript #{lines} '#{title.strip}'`
-    end
-  
-    def todo_with_title(title)
-      lines = DATA.read.inject("") do |str, line|
-        line = line.gsub(/%CMD%/, '{name:item 1 of argv}') if line =~ /%CMD%/
-        str << "-e '#{line.strip}' "
-        str
-      end
-      `osascript #{lines} '#{title.strip}'`
-    end
-  end
-end
-
-if STDIN.tty?       
-  ARGV.size < 1 ? RDoc::usage('usage') : Things::CLI.new.todo_with_note(open(ARGV[0]).read)
-else
-  Things::CLI.new.todo_with_title(STDIN.read)
-end
-
-__END__
-on run argv
-  tell application "Things"
-   set newToDo to make new to do with properties %CMD%  
-  end tell 
-end run
+Things::CLI.new.run(ARGV)
