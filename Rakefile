@@ -9,6 +9,8 @@ begin
     gem.email = "stefan@coravy.com"
     gem.homepage = "http://github.com/juretta/things"
     gem.authors = ["Stefan Saasen"]
+    gem.rubyforge_project = "things"
+    gem.default_executable = 'bin/things'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
